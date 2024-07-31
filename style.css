@@ -1,0 +1,241 @@
+/* Custom styles */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(249, 246, 246, 0.84);
+
+}
+
+/* NavBar Section Starts */
+nav {
+    display: flex;
+    color: rgb(218, 214, 214);
+    background-image: url('images/bg-2.jpg'), linear-gradient(to left, rgb(0, 0, 0), rgba(0, 0, 0, 0.982));
+    background-size: cover;
+    background-position: center;
+    min-height: 18vh;
+}
+
+.navbar-brand img {
+    border-radius: 10px;
+}
+
+.btn-custom {
+    color: inherit;
+    background-color: transparent;
+    transition: 0.4s;
+}
+
+.btn-custom:hover {
+    color: rgb(16, 16, 16);
+    background-color: rgb(233, 226, 226);
+    transform: scale(98%);
+}
+
+.profile .image img {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#nav_flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow wrapping for small screens */
+}
+
+#logo_h1 {
+    color: white;
+    position: relative;
+    bottom: 15px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    white-space: nowrap; /* Prevent text overflow */
+}
+
+#logo_box {
+    margin-top: 2%;
+    margin-left: 2%;
+    text-decoration: none;
+}
+#logo_box img{
+    margin-bottom: 17%;
+}
+
+#icon-main {
+    display: flex;
+    margin: 10px;
+    flex-wrap: wrap; /* Allow wrapping for small screens */
+    justify-content: flex-end;
+}
+
+#icon-1 {
+    margin-right: 80px;
+}
+
+#icon-1 button {
+    margin-top: 10%;
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    border: none;
+}
+
+#profile {
+    text-align: center;
+    line-height: 1.5px;
+    margin-top: 5%;
+}
+
+@media (max-width: 320px) {
+    #logo_h1 {
+        font-size: 1.2rem;
+        bottom: 10px;
+    }
+
+    #icon-main {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+
+    #icon-1 {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    #icon-1 button {
+        padding: 8px 20px;
+    }
+
+     #profile {
+        line-height: 1.5px;
+        margin-top: 10px; 
+    } 
+}
+
+/* NavBar Section End */
+
+
+/* Weekly Graph Section Starts */
+
+.week .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    /* background-color:#f4f4f9; */
+    border-radius: 8px;
+    box-shadow: 10px 12px 10px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.week .container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+}
+
+.container .chart-container {
+    border: 1px solid gray;
+    background-color: #f4f4f9;
+    position: relative;
+    width: 90%;
+    height: 0;
+    padding-bottom: 42%;
+}
+
+.container .chart-container canvas {
+    background-color: #f4f4f9;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+@media (max-width: 768px) {
+    .week .container {
+        padding: 10px;
+    }
+
+    .week .container h1 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+
+    .container .chart-container {
+        padding-bottom: 60%;
+    }
+}
+
+/* Weekly Graph Section Ends */
+
+
+/* Monthly Graph Starts */
+
+.month{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.month h2 {
+    margin-bottom: 20px;
+}
+
+#month-con {
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px 10px gray;
+    padding-bottom: 5%;
+    margin: 0 10px; 
+}
+
+#month-con3 {
+    width: 100%;
+    border: 1px solid gray;
+}
+
+
+/* Media queries for responsive design */
+@media (max-width: 767px) {
+    #month-con {
+        padding-bottom: 10%;
+    }
+
+    #month-con3 {
+        padding: 0 5px; /* Add padding for small screens */
+    }
+
+    .container {
+        width: 100%; /* Make the container full width */
+        padding: 0;  /* Remove padding */
+    }
+
+    h2 {
+        font-size: 1.5rem; /* Adjust font size for smaller screens */
+    }
+}
+
+@media (max-width: 320px) {
+    #month-con3 {
+        padding: 0 3px; /* Adjust padding further for very small screens */
+    }
+
+    h2 {
+        font-size: 1.2rem; /* Further adjust font size */
+    }
+
+    #expenseChart {
+        height: 300px; /* Specify a fixed height for very small screens */
+    }
+}
+
+/* Monthly Graph Ends */
+

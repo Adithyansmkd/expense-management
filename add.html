@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Management Form</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #2f2248, #1b0c28);
+            font-family: 'Arial', sans-serif;
+        }
+        .navbar {
+            background: transparent;
+        }
+        .navbar-brand {
+            color: #fff;
+            font-weight: 700;
+        }
+        .navbar-nav .nav-link {
+            color: #fff;
+            font-weight: 600;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #e0e0e0;
+        }
+        .form-container {
+            max-width: 700px;
+            margin: auto;
+            padding: 40px;
+            border-radius: 10px;
+            background: #ffffffdd;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            border: 1px solid #ddd;
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #000;
+            font-weight: 700;
+            font-size: 24px;
+        }
+        .form-control {
+            border: 1px solid #000000;
+            box-shadow: none;
+            padding: 10px;
+            transition: border-color 0.3s ease;
+        }
+        select {
+            background: transparent;
+        }
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: none;
+        }
+        .btn-primary {
+            width: 100%;
+            padding: 12px;
+            background: #51179d;
+            border: none;
+            color: #ffffff;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: #260449;
+        }
+        .form-group label {
+            font-weight: 600;
+            color: #000;
+        }
+        .form-control-file {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .form-control::placeholder {
+            color: #000;
+        }
+        .custom-select {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#">Company Name</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="user-page.html">Back to Home</a>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-light">Sign</button>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="form-container">
+        <h2>Expense Management Form</h2>
+        <form>
+            <div class="form-group">
+                <label for="clientName">Client Name</label>
+                <input type="text" class="form-control" id="clientName" placeholder="Enter client name">
+            </div>
+            <div class="form-group">
+                <label for="clientAddress">Address</label>
+                <input type="text" class="form-control" id="clientAddress" placeholder="Enter address">
+            </div>
+            <div class="form-group">
+                <label for="clientPhone">Phone</label>
+                <input type="tel" class="form-control" id="clientPhone" placeholder="Enter phone number">
+            </div>
+          
+            <div class="form-group">
+                <label for="expenseAmount">Travel expense</label>
+                <input type="number" class="form-control" id="expenseAmount" placeholder="Enter amount">
+            </div>
+            <div class="form-group">
+                <label for="expenseAmount">Food expense</label>
+                <input type="number" class="form-control" id="expenseAmount" placeholder="Enter amount">
+            </div>
+            <div class="form-group">
+                <label for="expenseAmount">Other expense</label>
+                <input type="number" class="form-control" id="expenseAmount" placeholder="Enter amount">
+            </div>
+            <div class="form-group">
+                <label for="expenseImage">Add Image (Offline)</label>
+                <input type="file" class="form-control-file" id="expenseImage">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NavBar Section Start -->
+    <div class="main">
+        <nav class="navbar navbar-expand-lg" id="nav">
+            <div class="container-fluid">
+                <div class="d-flex justify-content-between align-items-center w-100 flex-wrap" id="nav_flex">
+
+                    <a class="navbar-brand d-flex align-items-center" href="#" id="logo_box">
+                        <img src="images/Main-logo.png" alt="Main Logo" height="50" width="50">
+                        <span class="ms-2" id="logo_h1">Expence</span>
+                    </a>
+
+                    <div class="d-flex align-items-center justify-content-end flex-wrap" id="icon-main">
+
+                        <div class="icon-1" id="icon-1">
+                            <div class="text-end me-3">
+                                <h2 class="h5 mb-0">
+                                    <i class="fa-solid fa-calendar-days"></i>
+                                    March 12
+                                </h2>
+                            </div>
+                            <a href="add.html"><button class="btn btn-custom me-3">
+                                <i class="fa-solid fa-plus"></i>&nbsp; Add Data
+                            </button></a>
+                        </div>
+
+                        <div class="profile d-flex align-items-center" id="profile">
+                            <div class="image me-2">
+                                <img src="images/Profile.png" alt="Profile" height="40" width="40">
+                            </div>&nbsp;&nbsp;
+                            <p class="mb-0">UserName</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- NavBar Section End -->
+
+
+    <!-- Weekely Graph Section Start -->
+
+    <div class="week">
+        <div class="container">
+            <h1>Weekly Expense</h1>
+            <div class="chart-container">
+                <canvas id="expenseChart-1"></canvas>
+            </div>
+        </div>
+    </div>
+    <!-- Weekely Graph Section End -->
+
+
+
+    <!-- Monthly Expence Graph Starts -->
+
+    <div class="month">
+        <div class="container my-5" id="month-con"><br>
+            <h2 class="text-center">Monthly Expense</h2>
+            <div class="row justify-content-center" id="month-con2">
+                <br>
+                <div class="col-md-8" id="month-con3">
+                    <canvas id="expenseChart" id="month-canva"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Expense data
+        const expenseData = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            datasets: [{
+                label: 'Expenses',
+                data: [500, 700, 300, 800, 600, 1100, 900, 1000, 750, 850, 950, 650],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Configure chart
+        const config = {
+            type: 'bar', // You can change this to 'line', 'pie', etc.
+            data: expenseData,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        // Render chart
+        window.onload = function () {
+            const ctx = document.getElementById('expenseChart').getContext('2d');
+            new Chart(ctx, config);
+        };
+    </script>
+
+    <script>
+        function updateChart() {
+            const newData = [600, 800, 400, 900, 700, 1200, 950, 1050, 800, 900, 1000, 700];
+            expenseData.datasets[0].data = newData;
+            myChart.update();
+        }
+
+        window.onload = function () {
+            const ctx = document.getElementById('expenseChart').getContext('2d');
+            const myChart = new Chart(ctx, config);
+
+            // Example: Update chart after 5 seconds
+            setTimeout(updateChart, 5000);
+        };
+
+    </script>
+
+    <!-- Monthly Expence Graph Ends -->
+
+    <!-- Data Table Starts -->
+
+    <div class="container mt-5">
+        <h2 class="mb-4">Updates</h2>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Location</th>
+                    <th>Location Image</th>
+                </tr>
+            </thead>
+            <tbody id="contact-table-body">
+                <tr>
+                    <td>John Doe</td>
+                    <td>+1-234-567-8901</td>
+                    <td>New York, USA</td>
+                    <td><img src="https://media.cntraveler.com/photos/5654ac905e7aeb7a6e217952/master/pass/milford-sound-new-zealand-02-cr-getty.jpg"
+                            alt="New York" class="img-thumbnail" height="100px" width="100px"></td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>+1-234-567-8902</td>
+                    <td>London, UK</td>
+                    <td><img src="https://via.placeholder.com/100" alt="London" class="img-thumbnail" height="100px"
+                            width="100px"></td>
+                </tr>
+                <tr>
+                    <td>Mike Johnson</td>
+                    <td>+1-234-567-8903</td>
+                    <td>Sydney, Australia</td>
+                    <td><img src="https://via.placeholder.com/100" alt="Sydney" class="img-thumbnail" height="100px"
+                            width="100px"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="">
+
+        // This script is included for future interactivity
+        // Currently, it does not contain any functionality
+        document.addEventListener('DOMContentLoaded', (event) => {
+            console.log("Document is ready!");
+            // Add any JavaScript functionality here if needed
+        });
+
+    </script>
+    <!-- Data Table Ends -->
+
+    <!-- Footer Section Starts -->
+
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>About Us</h5>
+                    <p>Manage your expenses efficiently and effectively with our easy-to-use platform. Keep track of
+                        your spending, save money, and stay organized.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light">Home</a></li>
+                        <li><a href="#" class="text-light">Features</a></li>
+                        <li><a href="#" class="text-light">Pricing</a></li>
+                        <li><a href="#" class="text-light">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li>Email: support@expensemanagement.com</li>
+                        <li>Phone: +123 456 7890</li>
+                        <li>Address: 123 Expense St, Money City</li>
+                    </ul>
+                    <div class="mt-2">
+                        <a href="#" class="text-light mr-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-light mr-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                &copy; 2024 Expense Management. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap and Font Awesome JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <!-- Footer Section Ends -->
+
+
+    <script src="script.js"></script>
+    <!-- Include Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
